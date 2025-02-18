@@ -6,7 +6,10 @@ description: > # this means to ignore newlines until "show_exerpts:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 show_excerpts: true # set to true to show excerpts on the homepage
+permalink: /:title/  # ✅ 이 줄 추가하여 URL을 title 기반으로 설정
 
+baseurl: ""  # 루트 도메인 사용 시 빈 문자열
+url: "https://Poodlee.github.io"
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:

@@ -1,6 +1,7 @@
 ---
-layout:: dongjun
+layout: dongjun
 title: "Boostcamp - Classification"
+date:   2024-10-02 21:03:36 +0800
 description: "Sketch Image Classification"
 categories: ["Boostcamp", "Classification"]
 ---

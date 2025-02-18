@@ -1,6 +1,7 @@
 ---
-layout:: dongjun
+layout: dongjun
 title: "Boostcamp - OCR"
+date:   2024-11-08 21:03:36 +0800
 description: "Data-centric approach to tackle an OCR task related to receipts."
 categories: Boostcamp OCR
 ---

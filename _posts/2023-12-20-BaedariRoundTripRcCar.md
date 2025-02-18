@@ -1,6 +1,7 @@
 ---
-layout:: dongjun
+layout: dongjun
 title: "Baedari RC Car"
+date:   2023-12-20 21:03:36 +0800
 description: "Graduation Project with IR & 2D LiDAR Navigation"
 categories: ROS1 UnderGraduate
 ---

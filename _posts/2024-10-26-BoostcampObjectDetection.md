@@ -1,6 +1,7 @@
 ---
-layout:: dongjun
+layout: dongjun
 title: "Boostcamp - Object Detection"
+date:   2024-10-26 21:03:36 +0800
 description: "Trash Image Object Detection"
 categories: Boostcamp ObjectDetection
 ---
