@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: dongjun
 title: "Boostcamp - Semantic Segmentation"
 description: "Developing a Deep Learning-Based Bone Segmentation Model for Hand X-ray Images"
 categories: Boostcamp Semantic Segmentation

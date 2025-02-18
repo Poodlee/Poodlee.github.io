@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: dongjun
 title: "Baedari RC Car"
 description: "Graduation Project with IR & 2D LiDAR Navigation"
 categories: ROS1 UnderGraduate
