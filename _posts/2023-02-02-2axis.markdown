@@ -1,0 +1,97 @@
+---
+layout: roboin
+title: "2-Axis Manipulator"
+description: "Within RH+"
+categories: ROS2 RH+ UnderGraduate
+---
+
+Yonsei University's Roboin club is undertaking the RH+ project to design, build, and control a ~40cm humanoid robot with environment perception. As part of this initiative, we developed a 2-axis manipulator to quickly explore fundamental servo operations, 2D motion control, and basic computer vision with OpenCV.
+
+<div class="btn-row">
+  <a href="https://chanhui-robot.notion.site/2-Axis-Manipulator-09e1048e63fa4a6e8810e6909f8b3649?pvs=4" target="_blank" class="btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion" class="btn-icon"> Notion
+  </a>
+  <a href="https://github.com/chanhuirobot/rh_plus_2_axis_manipulator" target="_blank" class="btn">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="btn-icon"> GitHub
+  </a>
+</div>
+
+## Abstract
+As an initial step toward building our humanoid robot, we created a 2-axis manipulator to gain hands-on experience in basic servo control, 2D motion, and simple image processing via OpenCV. Our main objectives include:
+- Integrating servos with ROS2 for precise motion  
+- Drawing basic shapes on a 2D plane  
+- Detecting red objects and moving the end-effector accordingly  
+
+## Features
+
+### 1. Coordinate-Based Motion
+By entering specific coordinates, the manipulator’s end-effector moves precisely to the designated position on the XY-plane.
+
+<div class="video-container">
+  <iframe width="420" height="840" 
+    src="https://youtube.com/embed/NXZknpi9L9Q" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+### 2. Drawing a Square
+With a simple pen or marker attached, the manipulator can draw basic shapes, such as squares.
+
+<div class="video-container">
+  <iframe width="420" height="1260" 
+    src="https://youtube.com/embed/fYz3lODu4Jk" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+### 3. Tracking Red Dots
+Using a 2D camera and OpenCV, the system detects red-colored dots on a flat surface in real time and moves the end-effector accordingly.
+
+<div class="video-container">
+  <iframe width="420" height="1000" 
+    src="https://youtube.com/embed/jk845yoPPp4" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+## System Overview
+### Hardware
+- **Motors: HTD-35H** (2 units)  
+- **Motor Controller** (1 unit)  
+- **Battery: Lipo 11.1V**  
+- **Battery Connector (XT60, etc.)**  
+- **Main Board: Raspberry Pi 4B** (1 unit)  
+- **Metal Frame: 5052 Aluminum**  
+  - Approx. size: 250 mm x 150 mm  
+  - Components:  
+    - d_frame_1 x1, d_frame_2 x1, d_frame_3 x4  
+    - servo_bracket_top x2, servo_bracket_bottom x2, Frame_Bottom_Plate x1  
+    - [Reference link](https://metalmarket.co.kr/product/15t-%EC%95%8C%EB%A3%A8%EB%AF%B8%EB%8A%84-%ED%8C%90%EC%9E%AC-%ED%81%AC%EA%B8%B0%EC%84%A0%ED%83%9D-%EB%AC%B4%EB%A3%8C%EC%A0%95%EB%B0%80%EC%A0%88%EB%8B%A8/690/category/86/display/1/#none)  
+- **Aluminum Profile**  
+  3030 profile (100 mm), T-nuts x3  
+- **Acrylic Plate**  
+  White, 220 x 250 mm, 2T  
+- **Bolts** (M6 x30, M4 x10, M2 x4, etc.)  
+- **Loctite 242** (threadlocker)  
+- **Plywood**  
+  Red Plywood, 12T, 310 x 250 mm  
+- **Camera: Logitech C270**
+
+### Software
+- **Ubuntu22.04**
+- **ROS2 (Humble)**  
+- **MoveIt2**  
+- **C++** (core node implementation)  
+- **OpenCV** (basic color detection)
+
+## Making Video
+
+<div class="video-container">
+  <iframe width="420" height="640" 
+    src="https://youtube.com/embed/wFGt9S-DLFE" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+## Additional Commentary
+Through this 2-axis manipulator, we gained valuable insights into 2D motion control and vision-based manipulation. Our next step involves developing a 6-axis manipulator, focusing on more advanced path planning, collision detection, and grasping methods.

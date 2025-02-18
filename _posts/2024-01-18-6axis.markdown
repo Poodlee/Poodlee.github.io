@@ -1,0 +1,127 @@
+---
+layout: roboin
+title: "6-Axis Manipulator"
+description: "Within RH+"
+categories: ROS2 RH+ UnderGraduate
+---
+
+Yonsei University's Roboin club is undertaking the RH+ project to design, build, and control a ~40 cm humanoid robot with environment perception. Following our initial 2-axis manipulator, we are now developing a **6-axis manipulator**, which is currently **in progress**. This advanced arm aims to tackle more complex tasks such as pick-and-place, stacking, and obstacle avoidance.
+
+<div class="btn-row">
+  <a href="https://chanhui-robot.notion.site/7-Axis-Robot-Arm-627533d1fb984b588b3fc5142f86f195?pvs=4" target="_blank" class="btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion" class="btn-icon"> Notion
+  </a>
+  <a href="https://github.com/chanhuirobot/rh_plus_7_axis_robot_arm" target="_blank" class="btn">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="btn-icon"> GitHub
+  </a>
+</div>
+
+## Abstract
+This project explores a 6-axis robotic arm for more sophisticated manipulation tasks, including pick-and-place, collision avoidance, and stacking. We leverage **MoveIt2** for 3D path planning and aim to integrate depth cameras for advanced spatial awareness. **Development is ongoing**, focusing on hardware assembly, motion control, and computer vision. <!--more-->
+
+## Features
+
+### 1. MoveIt2 Integration
+We are incorporating **MoveIt2** to handle real-time path planning and collision detection in a 3D environment. This setup allows the arm to safely and accurately reach target positions even when obstacles are present.
+
+<div class="video-container">
+  <iframe width="420" height="315"
+          src="https://youtube.com/embed/T8C6xuPLzNw"
+          frameborder="0"
+          allowfullscreen>
+  </iframe>
+</div>
+
+### 2. FoundationPose-Based 6D Pose Estimation
+For more robust vision capabilities, we plan to integrate **FoundationPose** (or a similar method) to estimate 6D poses of objects. This enables the manipulator to pick up and place items with higher precision by understanding each object's exact location and orientation.
+<div class="video-container">
+  <iframe width="420" height="315"
+          src="https://youtube.com/embed/C_fPBnyGWO0"
+          frameborder="0"
+          allowfullscreen>
+  </iframe>
+</div>
+
+
+## System Overview
+
+1. **Intel RealSense D455**  
+   - Planned for advanced environment perception and depth data  
+2. **NVIDIA Jetson Orin Nano Super**  
+   - Planned as the main onboard computing unit  
+3. **Servo Motors (HTD-45H) + Metal Horn (7 sets)**  
+   1. Already purchased  
+   2. [Servo Motor (HTD-45H)](https://www.aliexpress.com/item/1005004845976999.html)  
+   3. [Metal Horn](https://www.aliexpress.com/item/1005004846129434.html)  
+4. **Aluminum Plates**  
+   1. Already purchased  
+   2. [Reference for plate count](https://www.notion.so/0194e99253fd41d8a5211275507b708c?pvs=21)  
+   3. Sizes & quantities:  
+      - 200×300×1.5 (3 pieces)  
+      - 100×100×4 (2 pieces)  
+      - 100×100×5 (2 pieces)  
+      - 100×100×6 (4 pieces)  
+      - 120×100×6 (3 pieces)  
+      - 100×100×8 (2 pieces)  
+      - 100×100×12 (3 pieces)  
+5. **M3 Nylon Nuts (100 units)**  
+   1. Already purchased  
+   2. [Store Link](https://smartstore.naver.com/boltoutlet/products/4223627261)  
+   3. Needed 4, but bought 100 to save on shipping  
+6. **Round-Head Bolts**  
+   1. Already purchased  
+   2. [Store Link](https://smartstore.naver.com/hanarobolt/products/6479781399)  
+   3. M2×4, M2×6, M2×35, M3×15, M5×14, etc. (multiple quantities)  
+   4. Some had to be purchased from AliExpress or RoboBuilder due to availability issues  
+7. **Standard Hex Bolts**  
+   1. Already purchased  
+   2. [Link](https://naver.me/5LuXA8Hz)  
+   3. M3×8, M3×10, etc.  
+8. **Countersunk Bolts (for profile mounting)**  
+   1. Already purchased  
+   2. [Link](https://naver.me/FQR2Ip0A)  
+   3. M5×22, M5×30, etc.  
+9. **Aluminum Profiles**  
+   1. Already purchased  
+   2. [4040 Profiles](https://smartstore.naver.com/bandotec/products/373076928) & [2020 Profiles](https://smartstore.naver.com/bandotec/products/7230610259)  
+   3. Various lengths (100mm, 40mm, 150mm, 400mm) and accessories (spring nuts, joint clips, etc.)  
+10. **Wooden Plates**  
+    1. Already purchased  
+    2. [Store Link](https://smartstore.naver.com/goodtree/products/4686984331)  
+    3. 150×150×12 (2 pieces), 415×300×12 (2 pieces)  
+11. **LM Guide**  
+    1. Already purchased  
+    2. [Store Link](https://smartstore.naver.com/nasspop/products/7073064025)  
+    3. Short-type block ×2, rail 200mm  
+12. **Bearings**  
+    1. Pending purchase  
+    2. [AXK5070](https://smartstore.naver.com/allbearing/products/4209406705)  
+13. **Hex Driver**  
+    1. Already purchased  
+    2. [Link](https://smartstore.naver.com/micromro/products/6274211943)  
+    3. Precision hex wrench driver (1.27mm)  
+14. **Teflon Sheet**  
+    1. Already purchased  
+    2. [Link](https://smartstore.naver.com/engp1080/products/236238941)  
+
+### Software
+- **Ubuntu 22.04**  
+- **ROS2 (Humble)**  
+- **MoveIt2**  
+- **C++**
+- **python3.10**  
+
+## Making Video
+A brief look at how we assembled the mechanical parts and tested the motion:
+
+<div class="video-container">
+  <iframe width="420" height="315"
+          src="https://www.youtube.com/embed/zW7u8YMU71c"
+          frameborder="0"
+          allowfullscreen>
+  </iframe>
+</div>
+
+
+## Additional Commentary
+Developing a 6-axis arm involves a significantly more complex mechanical design and advanced kinematic configurations. By integrating ROS2 and MoveIt2, we aim to achieve **precise, real-time control**. Our future work will include improved object recognition, **6D pose estimation**, and refined grasping algorithms for diverse tasks. This project is evolving rapidly, and we will continue to share progress as new features are implemented.
