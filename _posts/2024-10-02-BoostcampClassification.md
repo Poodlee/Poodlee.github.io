@@ -1,5 +1,5 @@
 ---
-layout:: post
+layout:: dongjun
 title: "Boostcamp - Classification"
 description: "Sketch Image Classification"
 categories: ["Boostcamp", "Classification"]

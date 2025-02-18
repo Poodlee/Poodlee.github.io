@@ -1,5 +1,5 @@
 ---
-layout:: post
+layout:: dongjun
 title: "Boostcamp - OCR"
 description: "Data-centric approach to tackle an OCR task related to receipts."
 categories: Boostcamp OCR
