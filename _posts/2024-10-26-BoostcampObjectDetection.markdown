@@ -1,5 +1,5 @@
 ---
-layout: roboin
+layout: post
 title: "Boostcamp - Object Detection"
 description: "Trash Image Object Detection"
 categories: Boostcamp ObjectDetection

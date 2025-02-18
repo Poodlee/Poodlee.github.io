@@ -1,5 +1,5 @@
 ---
-layout: roboin
+layout: post
 title: "Boostcamp - Classification"
 description: "Sketch Image Classification"
 categories: ["Boostcamp", "Classification"]

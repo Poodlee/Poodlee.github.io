@@ -6,8 +6,6 @@ description: > # this means to ignore newlines until "show_exerpts:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 show_excerpts: true # set to true to show excerpts on the homepage
-baseurl: ""  # 루트 도메인 사용 시 빈 문자열
-url: "https://Poodlee.github.io"  # 본인의 GitHub Pages 주소
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
@@ -56,11 +54,7 @@ plainwhite:
 # - about.md
 
 # Build settings
-# theme: plainwhite
-remote_theme: samarsault/plainwhite
-plugins:
-  - jekyll-seo-tag
-  - jekyll-remote-theme
+theme: plainwhite
 
 plugins:
   - jekyll-seo-tag
