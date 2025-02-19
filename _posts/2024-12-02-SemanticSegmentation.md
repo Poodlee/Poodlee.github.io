@@ -3,7 +3,7 @@ layout: dongjun
 title: "Boostcamp - Semantic Segmentation"
 date:   2024-12-02 21:03:36 +0800
 description: "Developing a Deep Learning-Based Bone Segmentation Model for Hand X-ray Images"
-categories: Boostcamp Semantic Segmentation
+categories: Boostcamp Semantic_Segmentation
 ---
 
 Bone segmentation is an essential task in medical imaging, playing a critical role in diagnostics and treatment planning. Despite advancements in deep learning, **accurate bone segmentation remains a challenging problem** due to issues such as **low contrast, overlapping structures, and variations in hand positioning**. This project aims to develop a **semantic segmentation model** capable of **segmenting 29 distinct bone classes** from hand X-ray images. 

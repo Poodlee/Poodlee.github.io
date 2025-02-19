@@ -6,8 +6,6 @@ description: "Graduation Project with IR & 2D LiDAR Navigation"
 categories: ROS1 UnderGraduate
 ---
 
-# Baedari: Round Trip RC Car
-
 Baedari is a **low-cost RC car project** designed for autonomous round-trip navigation, inspired by **desert ants' path integration**. Developed as a graduation project from July to December 2023, it leverages **IR sensors** and **2D LiDAR** for obstacle detection, route planning, and returning to its starting point.
 
 ## 📌 Project Links

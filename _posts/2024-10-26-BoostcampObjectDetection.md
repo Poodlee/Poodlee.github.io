@@ -40,6 +40,8 @@ The **main goal of this project** is to develop an object detection model capabl
 - **Model Selection & Training** using **both one-stage and two-stage object detectors**.
 - **Ensemble Learning** to maximize model robustness and accuracy.
 
+---
+
 ## Features
 
 ### 1. Exploratory Data Analysis (EDA) 
@@ -87,6 +89,8 @@ By combining different models, we achieved significant performance boosts:
 - **Weighted Box Fusion (WBF)** was used for optimal bounding box predictions.
 - **RT-DETR, Faster R-CNN, ViTDet, and DINO were ensembled** for final predictions.
 
+---
+
 ## System Overview
 ### Hardware
 - **GPU: V100 32G × 4**
@@ -98,6 +102,8 @@ By combining different models, we achieved significant performance boosts:
 - **Python 3.10**
 - **CUDA 11.6**
 - **PyTorch 1.12**
+
+---
 
 ## Experiments & Findings
 
@@ -116,6 +122,8 @@ By combining different models, we achieved significant performance boosts:
 
 ### 4. **Resolution Scaling**
 - **Training on different image resolutions (1024×2048, 2048×1024) improved small object detection**, but gains were marginal.
+
+---
 
 ## Additional Commentary
 During this project, I faced several challenges and learned valuable lessons:
