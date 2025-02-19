@@ -20,6 +20,19 @@ With the rapid increase in mass production and consumption, waste management has
   </a>
 </div>
 
+## Key Challenges & Learnings
+
+### 🔹 Key Challenges  
+1. **High Intra-Class Variance**: The "General Trash" category exhibited significant variation, making accurate classification difficult.  
+2. **Complexity of Model Adaptation**: Customizing **Detectron2 and MMDetection** was challenging due to their intricate model registration systems.  
+3. **Limited Training Data**: Data scarcity led to overfitting, especially for rare classes.  
+
+### 🔹 Learnings  
+✅ **Library Mastery**: Gained deep insights into **Detectron2 and MMDetection**, particularly in modifying loss functions and optimizers.  
+✅ **Effective Experimentation**: Learned the importance of **structured experiments**—prioritizing modular improvements rather than tweaking every parameter.  
+✅ **Collaboration & Documentation**: Using **Notion** for systematic tracking greatly enhanced team productivity.  
+✅ **Beyond Benchmark Scores**: Focused on **understanding why** certain backbones outperform others instead of just comparing numbers.  
+
 ## Abstract
 The **main goal of this project** is to develop an object detection model capable of accurately recognizing and classifying various types of waste in images. This project followed a **step-by-step approach**, involving:
 - **Exploratory Data Analysis (EDA)** to understand image characteristics.
@@ -29,7 +42,9 @@ The **main goal of this project** is to develop an object detection model capabl
 
 ## Features
 
-### 1. Exploratory Data Analysis (EDA)
+### 1. Exploratory Data Analysis (EDA) 
+👉 **[Full EDA Report](https://principled-nation-e2a.notion.site/111921078eca80219067e7007dd24b3c?pvs=4)**
+
 Understanding dataset characteristics was crucial before training models:
 - **Brightness Distribution**: Analyzed how lighting conditions affect model inference.
 - **Bounding Box (IoU) Distribution**: Assessed overlap between objects to optimize anchor sizes.

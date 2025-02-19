@@ -1,7 +1,7 @@
 ---
 layout: dongjun
 title: "Boostcamp - Classification"
-date:   2024-10-02 21:03:36 +0800
+date: 2024-10-02 21:03:36 +0800
 description: "Sketch Image Classification"
 categories: ["Boostcamp", "Classification"]
 ---
@@ -20,6 +20,12 @@ Leveraging various **CNN and Transformer-based models**, we explored **Ensemble 
     <img src="https://cdn-icons-png.flaticon.com/256/80/80942.png" alt="Report" class="btn-icon"> Report
   </a>
 </div>
+
+
+## Key Challenges & Learnings
+During this project, a significant amount of time was spent understanding the structure of deep learning projects. As a result, we primarily used fundamental architectures such as **ResNet** and slightly advanced models, without exploring the latest state-of-the-art architectures. Towards the end, incorporating models like **ViT CLIP** demonstrated a substantial performance boost, highlighting the importance of leveraging modern architectures from the beginning.
+
+Additionally, during augmentation, **offline augmentation** was applied naïvely, leading to nearly identical images being present in both the training and validation sets. This resulted in validation accuracy failing to serve as an accurate performance metric. A key realization was that when performing **offline augmentation**, it is crucial to ensure that augmented images remain exclusive to either the training or validation set. Alternatively, adopting **online augmentation** would be a more appropriate approach to prevent information leakage.
 
 ## Abstract
 This project focuses on **sketch image classification** using PyTorch Lightning.  
@@ -51,12 +57,12 @@ Our final solution integrates advanced CNN and Transformer architectures, includ
 The entire classification pipeline is managed using **PyTorch Lightning** for consistency and ease of experimentation.
 
 - **Environment**  
-  - Ubuntu / Python  
+  - Ubuntu 20.04 / Python 3.10  
   - PyTorch Lightning framework  
-  - CUDA-compatible GPU (e.g., Tesla V100 / RTX 3090)
+  - CUDA-compatible GPU: **4 × Tesla V100 (32GB)**
 
 - **Data Setup**  
-  - Original sketch dataset: ~30 images per class  
+  - Original sketch dataset: ~30 images per class (ImageNet)
   - Augmented dataset applying Canny, Morphology, Blur, etc. to expand coverage
 
 - **Model Implementations**  
@@ -106,20 +112,7 @@ The entire classification pipeline is managed using **PyTorch Lightning** for co
 
 ---
 
-## Additional Commentary
-
-### Procedure & Data Considerations
-- **Offline Augmentation** drastically increased total images, potentially intensifying data overlap between train/validation sets and causing severe overfitting.  
-- After removing near-duplicate images (via SSIM, Cosine Similarity), the dataset shrank from ~15,000 to 11,000 images.  
-- K-Fold CV attempted to mitigate overfitting, but with limited success due to inherent data noise and label inaccuracies.
-
-### Ensemble Model Highlights
-- **ViT_CLIP**: Pre-trained on large datasets, offering robust performance.  
-- **Swin Transformer**: Captures both local and global features with shifted windows.  
-- **ConvNeXtV2**: A CNN architecture that incorporates Transformer-like concepts (Depthwise Convolution, LayerNorm), achieving strong performance in modern benchmarks.
-
-### Future Plans
+## Future Plans
 - Investigate more advanced **overfitting countermeasures** (e.g., better data splitting, refined augmentation).  
 - For subsequent projects (e.g., **Object Detection**), plan to **manually tweak and implement** core layers rather than purely relying on SOTA models.  
 - Aim to achieve real-time detection (~30fps) by balancing network complexity and performance.
-
