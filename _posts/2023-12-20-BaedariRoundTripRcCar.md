@@ -6,109 +6,74 @@ description: "Graduation Project with IR & 2D LiDAR Navigation"
 categories: ROS1 UnderGraduate
 ---
 
-# Baedari: Autonomous RC Car Navigation
-Baedari is a low-cost RC car designed for round-trip autonomous driving, inspired by desert ants' path integration mechanisms. Developed between July and December 2023 as a graduation project, it utilizes IR sensors and a 2D LiDAR for obstacle detection, route planning, and returning to its starting position.
+# Baedari: Round Trip RC Car
 
-## 📌 Project Resources
-- **[Notion Documentation](https://principled-nation-e2a.notion.site/EEE4610_Obstacle_Avoidance-O-A-305fb86405554a93bf36bfe0f830b4d1?pvs=4)**
-- **[GitHub Repository](https://github.com/Poodlee/EEE4610_finals)**
-- **[Project Report (PDF)](https://github.com/user-attachments/files/17011959/7.pdf)**
+Baedari is a **low-cost RC car project** designed for autonomous round-trip navigation, inspired by **desert ants' path integration**. Developed as a graduation project from July to December 2023, it leverages **IR sensors** and **2D LiDAR** for obstacle detection, route planning, and returning to its starting point.
 
-## 📝 Abstract
-This project focuses on developing a **bio-inspired navigation system** for an RC car at a low cost. The goal was to navigate to a target coordinate and return to the starting point, mimicking desert ants' navigation strategies. 
+## 📌 Project Links
+- [**Notion**](https://principled-nation-e2a.notion.site/EEE4610_Obstacle_Avoidance-O-A-305fb86405554a93bf36bfe0f830b4d1?pvs=4)
+- [**GitHub**](https://github.com/Poodlee/EEE4610_finals)
+- [**Final Report**](https://github.com/user-attachments/files/17011959/7.pdf)
 
-### Key Features
-- **Infrared (IR) sensors** ensure close-range safety.
-- **2D LiDAR** enhances obstacle detection and path planning.
-- **Motor signal-based odometry** allows cost-effective localization.
+## 🎥 Demonstration & Results
 
-🚧 **Challenges:**
-- Odometry errors accumulate over long distances.
-- High-speed movements cause instability due to PWM fluctuations.
-- Limited traction impacts accuracy.
+### 🏁 Video Demonstration
+<iframe width="420" height="315" src="https://www.youtube.com/embed/BxYMxmuMnUI" frameborder="0" allowfullscreen></iframe>
 
-🎯 **Future Improvements:**
-- Optimize speed-to-PWM mapping.
-- Introduce low-cost IMU for better localization.
-- Enhance wheel traction for more stable navigation.
+### 📊 Localization Accuracy
+<div style="display: flex; align-items: center;">
+  <div>
+    <p align="center">
+      <img src="https://github.com/user-attachments/assets/3e68fe49-5883-490d-83ee-d04b9fbeba66" alt="Localization Result" width="300"/>
+    </p> 
+  </div>
+</div>
 
----
+| Path Type | Color | Observations |
+|-----------|-------|-------------|
+| **Ground Truth** | Yellow | Actual route taken |
+| **LiDAR Localization** | Green | More accurate but slow updates |
+| **Path Integration** | Blue | Low-cost, but drift accumulates |
 
-## 🎥 Results: Performance Demonstration
-### Video Demonstration & Localization Analysis
-The video below shows the RC car’s navigation performance and a comparison of localization methods:
+✅ **Path shape is maintained**, but **errors accumulate over time**. 
 
-- **🟡 Ground Truth** (Yellow)
-- **🟢 LiDAR-Based Localization** (Green)
-- **🔵 Path Integration-Based Estimation** (Blue)
+## 🔍 Why Does This Discrepancy Occur?
+The **path integration method** works as expected, maintaining a general trajectory close to ground truth. However, deviations in localization primarily stem from the **absence of map-based position corrections**. To improve accuracy, incorporating additional **reference points** (e.g., landmarks or feature-based localization) could be beneficial.
 
-![Localization Result](https://github.com/user-attachments/assets/3e68fe49-5883-490d-83ee-d04b9fbeba66)
+### **Localization Challenges**
+- **No Map-Based Position Correction** → The system cannot compare its location to a predefined map, leading to cumulative errors.
+- **Motor Signal-Based Path Integration** → Small odometry errors accumulate over time but do not significantly affect overall navigation.
+- **LiDAR Localization Lag** → The update rate is too low for real-time corrections in fast movement scenarios.
 
-⏳ **Key Observations:**
-- The path integration method itself works as expected, maintaining a general trajectory close to ground truth.
-- The deviation in localization results primarily stems from the absence of map-based position corrections.
-- Incorporating additional reference points (e.g., landmarks or feature-based localization) could improve accuracy.
+## 🔧 System Features
 
-### Localization Challenges
-1. No Map-Based Position Correction → The system cannot compare its location to a predefined map.
+### **Sensor Comparison**
+| Sensor Type | Maximum Distance | Frequency | Field of View |
+|-------------|-----------------|-----------|--------------|
+| **Infrared Sensors** | ~1.5m | 24–25Hz | Narrow |
+| **LiDAR** | ~12m | 5–7Hz | 360° |
 
-2. Motor Signal-Based Path Integration → Small odometry errors accumulate over time but do not significantly affect overall navigation.
+- **Infrared sensors** provide quick response times for close-range obstacle detection.
+- **LiDAR sensors** offer broader field coverage and long-range detection, enhancing global navigation awareness.
 
-3. LiDAR Localization Lag → The update rate is too low for real-time corrections in fast movement scenarios.
+### **Obstacle Avoidance Algorithms**
+<p align="center"> <img src="https://github.com/user-attachments/assets/2aabe56d-2e78-46d3-8b8c-8ed8eded335c" alt="Obstacle Avoidance" width="400"/> </p>
 
----
+| Algorithm | Sensor | Goal-Oriented? | Smoothness | Avg. Speed | Computational Load |
+|-----------|--------|--------------|------------|------------|------------------|
+| **WVAD** | IR | No | High | 2.8 m/s | High |
+| **SBAD** | IR | No | High | 2.4 m/s | Low |
+| **OFSD** ✅ | LiDAR | Yes | Medium | 1.1–1.4 m/s | Medium |
 
-## 🛠 Key Features & Development Process
-### 🔹 Incremental Development Approach
-1. **Basic Hardware Setup & IR Sensor Testing** → Ensured safety and obstacle detection.
-2. **2D LiDAR Integration** → Improved long-range obstacle detection.
-3. **Path Planning Implementation** → Evaluated open-source mapping solutions.
-4. **Bio-Inspired Path Integration** → Developed a real-time navigation algorithm based on desert ant behavior.
+### **Detailed Algorithm Descriptions**
+- **WVAD (Wall Detection Autonomous Driving)**: Uses IR sensors to create a virtual wall for obstacle avoidance, enabling smooth navigation but lacks goal direction.
+- **SBAD (State-Based Autonomous Driving)**: Implements a state machine approach to reduce noise sensitivity and improve stability.
+- **OFSD (Open Field Selective Driving)** ✅: LiDAR-based avoidance algorithm that selects the best path based on detected open spaces.
 
-### 🔹 Path Integration-Based Position Estimation
-- **Straight-line movement** estimated through distance integration.
-- **Turning** follows an Ackermann steering model.
-- **Error reduction** through optimized turn minimization.
+## 🛠 Hardware Components
 
-![Desert Ant Navigation](https://github.com/user-attachments/assets/278697bb-5272-4273-9954-a66483683fab)
-
-### 🔹 Obstacle Avoidance Strategy
-| Sensor Type  | Max Distance (m) | Frequency (Hz) | Field of View |
-|-------------|-----------------|----------------|--------------|
-| **Infrared Sensors** | ~1.5 | 24–25 | Narrow |
-| **LiDAR** | ~12 | 5–7 | 360° |
-
-**Obstacle Avoidance Algorithms:**
-| Algorithm | Sensor | Goal-Oriented | Smoothness | Speed (m/s) | Computation |
-|-----------|--------|--------------|------------|-------------|--------------|
-| **WVAD** | IR Sensors | No | High | 2.8 | High |
-| **SBAD** | IR Sensors | No | High | 2.4 | Low |
-| **OFSD** | LiDAR | Yes | Medium | 1.1–1.4 | Medium |
-
-#### ✅ OFSD (Open Field Selective Driving) – LiDAR-Based Avoidance
-**How it Works:**
-1. **Scan Environment** → Detects obstacles within a 6m radius.
-2. **Analyze Open Spaces** → Identifies passable gaps.
-3. **Select Optimal Path** → Moves towards the goal or finds an alternative route.
-
-**Key Parameters:**
-| Parameter | Value | Description |
-|-----------|--------|-------------|
-| `detect_distance` | 6m | LiDAR scanning radius |
-| `min_avoid_space_length` | 0.5m | Minimum required open space |
-| `oa_threshold` | 3m | Distance threshold for avoidance activation |
-| `emergency_stop_threshold` | 0.4m | Stops the car if an obstacle is too close |
-
-📌 **Limitations:**
-- LiDAR’s update frequency (~167ms) causes minor delays.
-- High-speed movements introduce miscalculations due to sensor lag.
-
----
-
-## 🏗 System Overview
-### 🔸 Hardware Components
-| Component | Quantity | Price (KRW/USD) |
-|-----------|----------|-----------------|
+| Item | Quantity | Price (KRW / USD) |
+|------|----------|-------------------|
 | RC Car (WLtoys 144001) | 1 | ₩120,000 / $86 |
 | Raspberry Pi 4B (4GB) | 1 | ₩110,000 / $79 |
 | RPLiDAR A1 | 1 | ₩400,000 / $286 |
@@ -119,24 +84,12 @@ The video below shows the RC car’s navigation performance and a comparison of 
 
 💰 **Total Cost:** ₩705,000 (~$504 USD)
 
-### 🔸 Software Stack
-- **Ubuntu 20.04**
-- **ROS1 (Noetic)**
-- **C++ (Navigation Node)**
-- **Gazebo (Simulation)**
+## 🎮 Simulation Results
 
----
+<video width="420" height="315" controls>
+  <source src="https://github.com/user-attachments/assets/e07aa5f4-e6fa-45b6-ae40-c25e4a5ed3c7" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
-## 🏁 Conclusion
-Baedari successfully demonstrates a **budget-friendly, bio-inspired autonomous RC car** using IR sensors and LiDAR. While localization accuracy needs improvement, the project highlights:
-- ✅ **Cost-effective navigation solutions**
-- ✅ **Trade-offs between affordability and accuracy**
-- ✅ **Future potential for low-cost robotics applications**
-
-📌 **Next Steps:**
-- Improve localization accuracy with **low-cost IMU integration**.
-- Refine **real-time processing** to enhance obstacle avoidance.
-- Upgrade **hardware (wheels, traction control)** for stability.
-
-This project serves as a **foundation for affordable autonomous vehicle research** and presents a practical balance between cost and performance.
-
+## 📢 Final Thoughts
+Baedari successfully achieves **goal-oriented navigation, obstacle avoidance, and low-cost implementation**. Future improvements include integrating an IMU and refining odometry accuracy while maintaining affordability. 🚗💨
