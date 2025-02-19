@@ -41,14 +41,19 @@ Baedari is a **low-cost RC car project** designed for autonomous round-trip navi
 ## 🔍 Why Does This Discrepancy Occur?
 The **path integration method** works as expected, maintaining a general trajectory close to ground truth. However, deviations in localization primarily stem from the **absence of map-based position corrections**. To improve accuracy, incorporating additional **reference points** (e.g., landmarks or feature-based localization) could be beneficial.
 
+---
+
 ### **Localization Challenges**
 - **No Map-Based Position Correction** → The system cannot compare its location to a predefined map, leading to cumulative errors.
 - **Motor Signal-Based Path Integration** → Small odometry errors accumulate over time but do not significantly affect overall navigation.
 - **LiDAR Localization Lag** → The update rate is too low for real-time corrections in fast movement scenarios.
 
+---
+
 ## 🔧 System Features
 
 ### **Sensor Comparison**
+
 | Sensor Type | Maximum Distance | Frequency | Field of View |
 |-------------|-----------------|-----------|--------------|
 | **Infrared Sensors** | ~1.5m | 24–25Hz | Narrow |
@@ -70,6 +75,8 @@ The **path integration method** works as expected, maintaining a general traject
 - **WVAD (Wall Detection Autonomous Driving)**: Uses IR sensors to create a virtual wall for obstacle avoidance, enabling smooth navigation but lacks goal direction.
 - **SBAD (State-Based Autonomous Driving)**: Implements a state machine approach to reduce noise sensitivity and improve stability.
 - **OFSD (Open Field Selective Driving)** ✅: LiDAR-based avoidance algorithm that selects the best path based on detected open spaces.
+
+---
 
 ## 🛠 Hardware Components
 
