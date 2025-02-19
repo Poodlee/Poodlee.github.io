@@ -17,15 +17,16 @@ Baedari is a **low-cost RC car project** designed for autonomous round-trip navi
 
 ## 🎥 Demonstration & Results
 
-### 🏁 Video Demonstration
-<iframe width="420" height="315" src="https://www.youtube.com/embed/BxYMxmuMnUI" frameborder="0" allowfullscreen></iframe>
-
-### 📊 Localization Accuracy
 <div style="display: flex; align-items: center;">
-  <div>
+  <div style="flex: 1;">
+    <h3>🏁 Video Demonstration</h3>
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/BxYMxmuMnUI" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div style="flex: 1;">
+    <h3>📊 Localization Accuracy</h3>
     <p align="center">
       <img src="https://github.com/user-attachments/assets/3e68fe49-5883-490d-83ee-d04b9fbeba66" alt="Localization Result" width="300"/>
-    </p> 
+    </p>
   </div>
 </div>
 
