@@ -16,7 +16,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Dong Jun_Pin
-  tagline: Maker
+  tagline: Safety Maker
   date_format: "%b %-d, %Y"
   analytics_id: "hirship1234"
   sitemap: true # set to true to generate sitemap.xml content
